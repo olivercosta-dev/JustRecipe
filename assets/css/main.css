@@ -47,7 +47,7 @@ img {
     inset: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 2rem;
+    grid-template-rows: 5rem;
     justify-content: center;
     z-index: 99999;
     transition: opacity 200ms ease-in-out;
@@ -62,7 +62,10 @@ img {
     margin-left: auto;
     padding-right: var(--page-padding-x);
 }
+.dot-menu img{
+    min-height: clamp(2rem,2rem + 1vw,3rem);
 
+}
 .navigation.hidden {
     opacity: 0;
     visibility: hidden;
