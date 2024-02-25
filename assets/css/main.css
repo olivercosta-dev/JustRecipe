@@ -39,14 +39,17 @@ img {
 .page-wrapper {
     padding-inline: var(--page-padding-x);
     padding-block: var(--page-padding-y);
+    position: relative;
 }
 
 .navigation {
+    position: fixed;
+    inset: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 2rem;
     justify-content: center;
-    margin-bottom: 1rem;
+    z-index: 99999;
 }
 .navigation .logo img {
     max-height: 100%;
@@ -54,9 +57,11 @@ img {
     margin: 0 auto;
 }
 .dot-menu {
-    margin-left: auto;
     align-self: center;
+    margin-left: auto;
+    padding-right: var(--page-padding-x);
 }
+
 .navigation.hidden {
     display: none;
 }
