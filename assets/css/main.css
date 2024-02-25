@@ -50,6 +50,7 @@ img {
     grid-template-rows: 2rem;
     justify-content: center;
     z-index: 99999;
+    transition: opacity 200ms ease-in-out;
 }
 .navigation .logo img {
     max-height: 100%;
@@ -63,7 +64,8 @@ img {
 }
 
 .navigation.hidden {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 .landing-header {
     position: relative;
