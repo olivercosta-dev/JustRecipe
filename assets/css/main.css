@@ -3,13 +3,13 @@
 :root {
     --page-padding-x: 1rem;
     --page-padding-y: 1rem;
-    --article-margin-y: 1rem;
+    --article-margin-y: 5rem;
 
     --page-color: #FFFAF0;
     --beige-color: #FECAAC;
     --red-color: #CC3928;
-
-    --h2-font-size: 1.5rem;
+    --green-color: #013000;
+    --h2-font-size: calc(1.5rem + 1vw);
 
     --basic-border: 2px solid black;
     --basic-border-radius: 1rem;
@@ -27,6 +27,7 @@ h2 {
 }
 body {
     background-color: var(--page-color);
+    font-size: clamp(1rem, 1vw + 1rem, 1.5rem);
    
 }
 img {
@@ -111,11 +112,15 @@ img {
     left: 33px; 
 }
 
-article {
+article, footer {
     min-height: 100lvh;
-    margin-block: var(--article-margin-y);
-}
 
+}
+article{
+    margin: var(--article-margin-y) auto;
+    max-width: 50rem;
+
+}
 .share-your-recipes {
     background-color: var(--beige-color);
     border-radius: var(--basic-border-radius);
@@ -145,7 +150,7 @@ article {
     padding-inline: 1rem;
     padding-block: .25em ;
     text-align: center;
-    max-width: 4rem;
+    max-width: 6rem;
 }
 .bowl-image {
     width: 10rem; /* TODO(oliver): Ez itt egy PLACEHOLDER */
@@ -174,15 +179,15 @@ article {
     border-radius: var(--basic-border-radius);
     border: var(--basic-border);
     padding: 1.5rem;
-    max-height: 10rem;
-    max-width: 10rem;
+    max-width: calc(10rem + 10vw);
 }
 .inner-wrapper h2{
     font-size: var(--h2-font-size);
     text-decoration: underline;
 }
 
-.simplicity-and-minimalism {
+.simplicity-and-minimalism-grid {
+    padding: 1rem;
     background-color: var(--red-color);
     border-radius: var(--basic-border-radius);
     border: var(--basic-border);
@@ -190,16 +195,15 @@ article {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap:1rem;
-    padding: 1rem;
     justify-content: center;
     align-items: center;
 }
-.simplicity-and-minimalism>div {
+.simplicity-and-minimalism-grid>div {
     border-radius: var(--basic-border-radius);
     border: var(--basic-border);
     background-color: var(--page-color);
+    overflow: hidden;
 }
-
 
 .article-header-wrapper{
     padding: 1.5rem;
@@ -215,4 +219,106 @@ article {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.bento-item>button{
+    position: relative;
+}
+.create-wrapper>button::after {
+    position: absolute;
+    display: block;
+    content: '';
+    min-width: 1.3rem;
+    aspect-ratio: 1/1;
+    background-image: url('../imgs/circle-notification.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: -6px;
+    top: -8px;
+}
+.explore-wrapper>button::after {
+    position: absolute;
+    display: block;
+    content: '';
+    min-width: 1.3rem;
+    aspect-ratio: 1/1;
+    background-image: url('../imgs/circle-notification.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: -6px;
+    top: -8px;
+}
+
+.express-embrace-grow {
+    display: grid;
+    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.express-embrace-grow h2{
+    font-size: var(--h2-font-size);
+    text-decoration: underline;
+}
+.express-image-wrapper,
+.embrace-image-wrapper,
+.grow-image-wrapper {
+    padding: 1rem;
+}
+
+.express-image-wrapper,
+.express-image-wrapper>img {
+    background-color: var(--red-color);
+    border-radius: var(--basic-border-radius);
+    border: var(--basic-border);
+}
+.embrace-image-wrapper,
+.embrace-image-wrapper>img {
+    background-color: var(--green-color);
+    border-radius: var(--basic-border-radius);
+    border: var(--basic-border);
+}
+.grow-image-wrapper,
+.grow-image-wrapper>img {
+    background-color: var(--beige-color);
+    border-radius: var(--basic-border-radius);
+    border: var(--basic-border);
+}
+.grow-together,
+.express-yourself {
+    text-align: right;
+}
+
+.more-than-just-recipes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.just-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.just-text {
+    text-align: center;
+}
+.just-text h2 {
+    font-size: clamp(1.5rem,2,2.5rem);
+}
+.just-text p {
+    font-size: 1rem;
+}
+.more-than-just-recipes img{
+    min-height: 10rem;
+}
+.register-button {
+    background-color: white;
+    border: var(--basic-border);
+    border-radius: var(--basic-border-radius);
+    padding-block: .3rem;
+    padding-inline: .5rem;
+    margin-top: .5rem;
 }
