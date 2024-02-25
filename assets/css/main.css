@@ -28,7 +28,6 @@ h2 {
 body {
     background-color: var(--page-color);
     font-size: clamp(1rem, 1vw + 1rem, 1.5rem);
-   
 }
 img {
     display: block;
@@ -40,36 +39,43 @@ img {
     padding-inline: var(--page-padding-x);
     padding-block: var(--page-padding-y);
     position: relative;
+    z-index: 1;
+    isolation: isolate;
 }
-
-.navigation {
+.dot-menu {
     position: fixed;
+    right: var(--page-padding-y);
+    z-index: 9999;
+}
+.dot-menu img {
+    min-height: clamp(2rem,2rem + 1vw,3rem);
+}
+.dot-menu.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+/* .dot-menu {
+    position: fixed;
+    isolation: isolate;
     inset: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 5rem;
+    height: fit-content;
     justify-content: center;
-    z-index: 99999;
     transition: opacity 200ms ease-in-out;
-}
-.navigation .logo img {
+} */
+/* .navigation .logo img {
     max-height: 100%;
     max-width: 100%;
     margin: 0 auto;
-}
-.dot-menu {
+} */
+/* .dot-menu {
     align-self: center;
     margin-left: auto;
     padding-right: var(--page-padding-x);
-}
-.dot-menu img{
-    min-height: clamp(2rem,2rem + 1vw,3rem);
+} */
 
-}
-.navigation.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
 .landing-header {
     position: relative;
     min-height: 100lvh;
@@ -129,7 +135,6 @@ article, footer {
 article{
     margin: var(--article-margin-y) auto;
     max-width: 50rem;
-
 }
 .share-your-recipes {
     background-color: var(--beige-color);
@@ -330,4 +335,8 @@ article{
     padding-block: .3rem;
     padding-inline: .5rem;
     margin-top: .5rem;
+}
+/* hover animations */
+button:hover {
+    cursor:pointer;
 }

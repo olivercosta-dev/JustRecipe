@@ -1,4 +1,4 @@
-const navBarElement = document.querySelector('.navigation')
+const navBarElement = document.querySelector('.dot-menu')
 const landingPageHeader = document.querySelector('header')
 
 console.log(navBarElement)
