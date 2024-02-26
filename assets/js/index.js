@@ -67,20 +67,32 @@ function onProgressScroll(event) {
                     if (!e.classList.contains('faded')){
                         e.classList.add('faded')
                     }
+                    if(e.querySelector('h2') && e.querySelector('h2').classList.contains('underlined')){
+                        e.querySelector('h2').classList.remove('underlined')
+                    }
+                  
                 } else {
                     if (e.classList.contains('faded')){
                         e.classList.remove('faded')
                     }
+                    if(e.querySelector('h2')){
+                        e.querySelector('h2').classList.add('underlined')
+                    }
+                   
                 }
             })
             if (currentRow === 0){
                 progressBarElement.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--red-color').trim();
+                document.body.classList.add('body-dark')
+                document.querySelector('.express-yourself h2').classList.add('underlined')
             }
             else if (currentRow === 1){
                 progressBarElement.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--green-color').trim();
             } else {
                 progressBarElement.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--beige-color').trim();
             }
+        } else {
+            document.body.classList.remove('body-dark')
         }
 }
 

@@ -35,6 +35,9 @@ h2 {
 body {
     background-color: var(--page-color);
     font-size: clamp(1rem, 1vw + 1rem, 1.5rem);
+    transition:
+        background-color 500ms ease-in-out,
+        color 500ms ease-in-out;
 }
 img {
     display: block;
@@ -290,12 +293,21 @@ article{
 
 .express-embrace-grow h2{
     font-size: var(--h2-font-size);
-    text-decoration: underline;
+    background-image: linear-gradient(90deg, var(--red-color), var(--red-color));
+
+    background-size: 0% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 500ms ease-in-out;
 }
+.express-embrace-grow h2.underlined{
+    background-size: 100% 3px;
+}
+
 .express-image-wrapper,
 .embrace-image-wrapper,
 .grow-image-wrapper {
-    padding: 1rem;
+    padding: .5rem;
     height: 75%;
 }
 
@@ -426,4 +438,8 @@ article{
 }
 .express-embrace-grow .faded {
     opacity: 0.3;
+}
+.body-dark {
+    background-color: black;
+    color: white;
 }
