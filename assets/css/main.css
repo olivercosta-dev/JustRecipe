@@ -443,3 +443,37 @@ article{
     background-color: black;
     color: white;
 }
+#rays path, #logo-center{
+    transform-box: fill-box;
+    transform-origin: center;
+}
+/* #logo-center {
+    transition: transform 500ms ease-in-out;
+} 
+    #logo-group:has(#logo-center:hover) #rays path
+{
+    animation: rotate-anim 1.5s ease both;
+} */
+.animated {
+    animation: rotate-anim 1.5s ease forwards;
+}
+@keyframes rotate-anim {
+    0% {
+        rotate: 0deg
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+/* #logo-center:hover{
+   animation: up-n-down 1s ease-in-out forwards ;
+} 
+
+@keyframes up-n-down{
+    25%{
+        transform: translate(0,-5px);
+    }
+    50%{
+        transform: translate(0,5px);
+    }
+} */

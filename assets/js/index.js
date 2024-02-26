@@ -111,3 +111,23 @@ createButtonElement.addEventListener('click',event => {
     preparedFoodImage.classList.toggle('hidden')
 })
 
+const landingLogoCenterElement = document.querySelector('#logo-center')
+
+
+landingLogoCenterElement.addEventListener('mouseover', onLogoHover)
+document.querySelectorAll('#rays path')
+        .forEach(element => element
+            .addEventListener('animationend', onAnimationEnd))
+
+function onAnimationEnd(event) {
+    console.log('animation ended')
+    document
+        .querySelectorAll('#rays path')
+        .forEach(element => element.classList.remove('animated'))
+}
+
+function onLogoHover(event) {
+    document
+        .querySelectorAll('#rays path')
+        .forEach(element => element.classList.add('animated'))
+}
