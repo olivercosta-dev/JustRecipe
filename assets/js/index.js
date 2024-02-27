@@ -131,3 +131,25 @@ function onLogoHover(event) {
         .querySelectorAll('#rays path')
         .forEach(element => element.classList.add('animated'))
 }
+
+document.querySelector('.ingredients-btn').addEventListener('click', event => {
+    document.querySelector('.recipe-steps').classList.add('hidden')
+    document.querySelector('.recipe-ingredients').classList.remove('hidden')
+    event.currentTarget.classList.add('active')
+    document.querySelector('.steps-btn').classList.remove('active')
+})
+document.querySelector('.steps-btn').addEventListener('click', event => {
+    event.currentTarget.classList.toggle('active')
+    document.querySelector('.recipe-ingredients').classList.add('hidden')
+    document.querySelector('.recipe-steps').classList.remove('hidden')
+
+    event.currentTarget.classList.add('active')
+    document.querySelector('.ingredients-btn').classList.remove('active')
+
+
+})
+
+document.querySelector('.btn.see-more').addEventListener('click', event => {
+    document.querySelector('.inner').classList.remove('recipe-hidden')
+    document.querySelector('.inner').classList.add('recipe-shown')
+})

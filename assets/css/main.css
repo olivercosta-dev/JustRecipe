@@ -12,6 +12,8 @@
     --green-color: #013000;
     --blue-color: #3A9DFB;
 
+    --basic-font-size: clamp(1rem, 1vw + 1rem, 1.5rem);
+    --button-font-size: clamp(1rem,1rem + .5vw, 1.5rem);
     --h2-font-size: calc(1.5rem + 2vw);
 
     --basic-border: 2px solid black;
@@ -170,14 +172,7 @@ article{
     margin-inline: 1rem;
 }
 .action-button {
-    all: unset;
-    background-color: white;
-    border-radius: var(--basic-border-radius);
-    border: var(--basic-border);
-    padding-inline: 1rem;
-    padding-block: .25rem ;
-    text-align: center;
-    max-width: 6rem;
+    max-width: 7.5rem;
 }
 .bowl-image {
     width: 10rem; /* TODO(oliver): Ez itt egy PLACEHOLDER */
@@ -207,12 +202,30 @@ article{
     border: var(--basic-border);
     padding: 1.5rem;
     max-width: calc(10rem + 15vw);
+    max-height: 60dvh;
+    overflow-y: auto;
+    transition: all 500ms ease;
 }
 .inner-wrapper h2{
     font-size: var(--h2-font-size);
     text-decoration: underline;
 }
-
+.recipe-ingredients.hidden{
+    display:none;
+}
+ol{
+    list-style-position: inside;
+}
+.inner h3{
+    margin-block: 1rem;
+}
+.ingredient-and-step-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.recipe-steps.hidden{
+    display:none;
+}
 .simplicity-and-minimalism-grid {
     padding: 1rem;
     background-color: var(--red-color);
@@ -259,6 +272,30 @@ article{
     background-size: contain;
     background-repeat: no-repeat;
     left: -6px;
+    top: -8px;
+}
+.btn.notification-left::after{
+    position: absolute;
+    display: block;
+    content: '';
+    min-width: 1.3rem;
+    aspect-ratio: 1/1;
+    background-image: url('../imgs/circle-notification.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: -6px;
+    top: -8px;
+}
+.btn.notification-right::after{
+    position: absolute;
+    display: block;
+    content: '';
+    min-width: 1.3rem;
+    aspect-ratio: 1/1;
+    background-image: url('../imgs/circle-notification.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: -6px;
     top: -8px;
 }
 .explore-wrapper>button::after {
@@ -368,12 +405,24 @@ article{
 }
 /* hover animations */
 .btn {
+    position: relative;
+    border-radius: var(--basic-border-radius);
+    border: var(--basic-border);
+    padding-inline: 1rem;
+    padding-block: .25rem ;
+    text-align: center;
+    font-size: var(--button-font-size);
+    /* max-width: 6rem; */
     background-color: white;
     color: black;
     transition: 
         background-color 250ms ease-in-out,
         color 250ms ease-in-out,
         scale 250ms ease-in-out;
+}
+.btn.active{
+    background-color: var(--red-color);
+    color: white;
 }
 .btn:hover {
     cursor: pointer;
@@ -384,6 +433,23 @@ article{
 .explore-wrapper .btn:hover{
     scale: 1.2;
 }
+
+.btn.notification-left::after,
+.btn.notification-right::after{
+    transition: opacity 250ms ease-in-out;
+}
+
+.btn.notification-left:hover,
+.btn.notification-right:hover{
+    scale: 1.2;
+}
+.recipe-shown{
+    animation: fade-in 1000ms forwards;
+}
+.btn.notification-left:hover::after,
+.btn.notification-right:hover::after{
+    opacity: 0;;
+}
 .create-wrapper .btn::after,
 .explore-wrapper .btn::after{
     transition: opacity 250ms ease-in-out;
@@ -392,7 +458,15 @@ article{
 .explore-wrapper .btn:hover::after{
     opacity: 0;
 }
-/* Playground */ 
+.inner.recipe-hidden>:not(h2){
+    display: none;
+}
+.inner.recipe-shown>h2{
+    display: none;
+}
+.inner.recipe-shown{
+    max-width: calc(10rem + 25vw);
+}
 .sushi-wrapper {
     position: relative;
     transition: transform 500ms ease-in-out;
@@ -477,3 +551,12 @@ article{
         transform: translate(0,5px);
     }
 } */
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
